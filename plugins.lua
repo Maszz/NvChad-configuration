@@ -36,12 +36,6 @@ local plugins = {
       {
         "williamboman/mason-lspconfig.nvim",
       },
-      -- {
-      --   "jay-babu/mason-null-ls.nvim",
-      --   config = function()
-      --     require "custom.configs.mason_null_ls"
-      --   end,
-      -- },
       {
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
