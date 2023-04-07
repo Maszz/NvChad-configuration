@@ -35,14 +35,10 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
    formatting.prettier,
    formatting.stylua,
-
    formatting.deno_fmt,
    formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
-
-
    lint.shellcheck,
 }
-
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
     sources = sources,
