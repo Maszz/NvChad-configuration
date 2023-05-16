@@ -5,16 +5,16 @@ local plugins = {
       ensure_installed = {
         "rust-analyzer",
         "lua-language-server",
-				"stylua",
-				-- web dev
-				"css-lsp",
-				"deno",
-				"emmet-ls",
-				"eslint-lsp",
-				"html-lsp",
-				"json-lsp",
-				"typescript-language-server",
-				"yaml-language-server",
+        "stylua",
+        -- web dev
+        "css-lsp",
+        "deno",
+        "emmet-ls",
+        "eslint-lsp",
+        "html-lsp",
+        "json-lsp",
+        "typescript-language-server",
+        "yaml-language-server",
         "prettier",
         -- "pyright",
         "prisma-language-server",
@@ -26,8 +26,8 @@ local plugins = {
         "pyright",
         "autopep8",
         "flake8",
-        
-			},
+        "gopls",
+      },
     },
   },
   {
@@ -37,23 +37,22 @@ local plugins = {
         "williamboman/mason-lspconfig.nvim",
       },
       {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        require "custom.configs.null-ls"
-      end,
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
       },
       {
         "lukas-reineke/lsp-format.nvim",
         config = function()
           require "custom.configs.lsp-format"
         end,
-      }
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-
-    end,z
+    end,
   },
   {
     "jayp0521/mason-null-ls.nvim",
@@ -66,9 +65,9 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts={
+    opts = {
       auto_install = true,
-    }
+    },
   },
   {
     "windwp/nvim-ts-autotag",
@@ -78,9 +77,16 @@ local plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
- 
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silence! GoInstallDeps]]
+    end,
+  },
 }
-
-
 
 return plugins
