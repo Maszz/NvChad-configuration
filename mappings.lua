@@ -1,6 +1,6 @@
 local M = {}
 
--- -- In order to disable a default keymap, use
+-- In order to disable a default keymap, use
 M.disabled = {
   n = {
     ["<leader>h"] = "",

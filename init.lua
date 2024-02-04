@@ -1,5 +1,5 @@
 -- Disable diagnostics for .env files
-local group = vim.api.nvim_create_augroup("__env", {clear=true})
+local group = vim.api.nvim_create_augroup("__env", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = ".env",
   group = group,
